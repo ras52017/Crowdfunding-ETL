@@ -4,9 +4,14 @@ CREATE TABLE "backers" (
     "first_name" varchar(50)   NOT NULL,
     "last_name" varchar(50)   NOT NULL,
     "email" varchar(50)   NOT NULL
-    --CONSTRAINT "pk_backers" PRIMARY KEY ("backer_id") 
-	--FOREIGN KEY("cf_id") REFERENCES "campaign" ("cf_id");
+  
 );
 
 ALTER TABLE "backers" ADD CONSTRAINT "fk_backers_cf_id" FOREIGN KEY("cf_id")
 REFERENCES "campaign" ("cf_id");
+
+SELECT *
+FROM backers
+FETCH NEXT 10 ROWS ONLY
+
+
